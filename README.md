@@ -142,44 +142,37 @@ print(timer)
 
 ```python
 import time
-
-def fibonacci_iterative(n):
-    if n < 2:
+def FibonacciRecursivo(n):
+    if n <= 1:
         return n
-    a, b = 0, 1
-    for i in range(2, n+1):
-        a, b = b, a + b
-    return b
-
-def fibonacci_recursive(n):
-    if n < 2:
+    else:
+        return FibonacciRecursivo(n-1) + FibonacciRecursivo(n-2)
+def FibonacciIterativo(n):
+    if n <= 1:
         return n
-    return fibonacci_recursive(n-1) + fibonacci_recursive(n-2)
-
-n = int(input("Ingrese un número para calcular la serie de Fibonacci: "))
-
-start_time = time.time()
-fib_iter = fibonacci_iterative(n)
-end_time = time.time()
-
-iter_timer = end_time - start_time
-
-start_time = time.time()
-fib_rec = fibonacci_recursive(n)
-end_time = time.time()
-
-rec_timer = end_time - start_time
-
-print("El {}-ésimo número de Fibonacci con iteración es: {}".format(n, fib_iter))
-print("El tiempo de ejecución con iteración es: {:.10f} segundos".format(iter_timer))
-
-print("El {}-ésimo número de Fibonacci con recursión es: {}".format(n, fib_rec))
-print("El tiempo de ejecución con recursión es: {:.10f} segundos".format(rec_timer))
-
-if iter_timer > rec_timer:
-    print("La función recursiva es más rápida para calcular la serie de Fibonacci a partir del {}-ésimo término.".format(n))
+    else:
+        a = 0
+        b = 1
+        for i in range(2, n+1):
+            c = a + b
+            a = b
+            b = c
+        return b
+n = int(input("Ingrese el número de la serie Fibonacci que desea calcular: "))
+InicioTimeRecursivo = time.time()
+FibonacciRecursivo(n)
+FinTimeRecursivo = time.time()
+TimerRecursivo = FinTimeRecursivo - InicioTimeRecursivo
+InicioTimeIterativo = time.time()
+FibonacciIterativo(n)
+FinTimeIterativo = time.time()
+TimeIterativo = FinTimeIterativo - InicioTimeIterativo
+print("El tiempo de ejecución para el cálculo de Fibonacci recursivo es: ", TimerRecursivo)
+print("El tiempo de ejecución para el cálculo de Fibonacci iterativo es: ", TimeIterativo)
+if TimeIterativo > TimerRecursivo:
+    print("El cálculo de Fibonacci recursivo es más rápido a partir del número ", n)
 else:
-    print("La función iterativa es más rápida para calcular la serie de Fibonacci a partir del {}-ésimo término.".format(n))
+    print("El cálculo de Fibonacci iterativo es más rápido a partir del número ", n)
 ```
 
 ## 5. Cuenta en stackoverflow

@@ -181,4 +181,4 @@ else:
 
 ## 6. Cuenta de Linkedin
 
-Enlace del perfil de Linkedin: [Perfil linkedin]([https://www.linkedin.com/in/david-alejandro-dortegasa-b67b10273/])
+Enlace del perfil de Linkedin: https://www.linkedin.com/in/david-alejandro-dortegasa-b67b10273/
